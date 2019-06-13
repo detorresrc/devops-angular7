@@ -7,5 +7,6 @@ export const environment = {
     projectId: 'ismaestro-angularexampleapp',
     storageBucket: 'ismaestro-angularexampleapp.appspot.com',
     messagingSenderId: '965114235515'
-  }
+  },
+  domainRoot: 'https://group3-staging.ibm-kapamilya-devops.com'
 };

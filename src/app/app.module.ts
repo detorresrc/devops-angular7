@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {registerLocaleData} from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import {NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
+import { SeoService } from './shared/seo.service';
 
 declare const require;
 
@@ -47,7 +48,8 @@ registerLocaleData(localeEs, 'es');
       },
       deps: [LOCALE_ID]
     },
-    I18n
+    I18n,
+    SeoService
   ],
   bootstrap: [AppComponent]
 })

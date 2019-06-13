@@ -6,6 +6,7 @@ import {Location} from '@angular/common';
 import {AppConfig} from '../../../../configs/app.config';
 import {transition, trigger, useAnimation} from '@angular/animations';
 import {fadeIn} from 'ng-animate';
+import { SeoService } from 'src/app/shared/seo.service';
 
 @Component({
   selector: 'app-hero-detail-page',
@@ -25,13 +26,20 @@ export class HeroDetailPageComponent implements OnInit {
   constructor(private heroService: HeroService,
               private location: Location,
               private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private seo: SeoService) {
   }
 
   ngOnInit() {
     const heroId = this.activatedRoute.snapshot.paramMap.get('id');
     this.heroService.getHero(heroId).subscribe((hero: Hero) => {
       this.hero = hero;
+
+      this.seo.generateTags({
+        title: 'Title | ' + hero.name,
+        description: "Description | " + hero.name,
+        image: hero.avatarUrl
+      })
     });
   }
 

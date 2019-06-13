@@ -11,6 +11,7 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {transition, trigger, useAnimation} from '@angular/animations';
 import {fadeIn} from 'ng-animate';
 import {APP_CONFIG} from '../../../../configs/app.config';
+import { SeoService } from 'src/app/shared/seo.service';
 
 @Component({
   selector: 'app-heroes-list-page',
@@ -39,7 +40,8 @@ export class HeroesListPageComponent implements OnInit {
               private i18n: I18n,
               private formBuilder: FormBuilder,
               @Inject(PLATFORM_ID) private platformId: Object,
-              @Inject(APP_CONFIG) public appConfig: any) {
+              @Inject(APP_CONFIG) public appConfig: any,
+              private seo: SeoService) {
     this.canVote = this.heroService.checkIfUserCanVote();
 
     this.newHeroForm = this.formBuilder.group({
@@ -54,6 +56,11 @@ export class HeroesListPageComponent implements OnInit {
     this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
       this.heroes = heroes;
     });
+
+    this.seo.generateTags({
+      title: 'Title | Hero List',
+      description: 'Description | Hero List'
+    })
   }
 
   async createNewHero() {
