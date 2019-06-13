@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { Location } from "@angular/common";
+import { Location } from '@angular/common';
 import { environment } from '../../environments/environment';
 
 @Injectable()
@@ -17,8 +17,7 @@ export class SeoService {
         description: 'Angular example app is a base project to start coding with Angular',
         image: 'https://angularexampleapp.com/assets/images/og.jpg',
         ...config
-      }
-    
+      };
       this.title.setTitle( config.title );
       this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
       this.meta.updateTag({ name: 'twitter:site', content: '@content' });

@@ -60,7 +60,7 @@ export class HeroesListPageComponent implements OnInit {
     this.seo.generateTags({
       title: 'Title | Hero List',
       description: 'Description | Hero List'
-    })
+    });
   }
 
   async createNewHero() {

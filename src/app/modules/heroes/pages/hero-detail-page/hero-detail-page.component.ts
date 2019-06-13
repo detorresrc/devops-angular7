@@ -37,9 +37,9 @@ export class HeroDetailPageComponent implements OnInit {
 
       this.seo.generateTags({
         title: 'Title | ' + hero.name,
-        description: "Description | " + hero.name,
+        description: 'Description | ' + hero.name,
         image: hero.avatarUrl
-      })
+      });
     });
   }
 
