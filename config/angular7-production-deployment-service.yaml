@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: angular7-production
-        image: devopsgroup3/angular7:production
+        image: devopsgroup3/angular7:__VERSION__
         ports:
         - containerPort: 80
 ---
